@@ -8,7 +8,9 @@ from datasource import DataSource
 
 @click.command()
 @click.option('--file_dir', default=None, help='Specify if desired file is not default.')
-@click.option('--show_text', default=False, help='Print text with matching section highlighted')
+@click.option('--show_text/--no_text', default=False, \
+              help='If --show_text, print text with matching section highlighted. ' \
+                    'Default is --no_text')
 @click.argument('search_expr')
 def bill_search(search_expr, file_dir, show_text):
     '''
@@ -30,16 +32,13 @@ def bill_search(search_expr, file_dir, show_text):
         click.echo('File not found. Please specify a valid path to the data source.\n')
         exit(1)
 
-    if show_text:
-        matches = matches_with_substrings(ds, search_expr)
-    else:
-        matches = simple_matches(ds, search_expr)
+    matches = matches_with_substrings(ds, search_expr) if show_text else \
+              simple_matches(ds, search_expr)
 
     click.echo('Number of bills that match: {}\n'.format(len(matches)))
 
     for bill_id,text_info in sorted(matches.items(), key = lambda x: int(x[0].split()[1])):
         click.echo(bill_id)
-
         if show_text:
             click.echo(display_matching_substring(text_info))
 
@@ -86,7 +85,6 @@ def display_matching_substring(text_and_matches):
         string += text[placeholder:start]
         string += '{}{}{}'.format(underline,text[start:end],end_underline)
         placeholder=end
-    
     string += '{}\n'.format(text[placeholder:])
 
     return(string)
