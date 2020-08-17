@@ -21,7 +21,7 @@ def bill_search(search_expr, file_dir, show_text):
     \b
     Examples: 
         python billsearch.py "American \w+ Bureau"
-        python billsearch.py --show_text True "American \w+ Bureau"
+        python billsearch.py --show_text "American \w+ Bureau"
     '''
 
     ds = DataSource() if file_dir is None else DataSource(file_dir)

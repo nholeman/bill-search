@@ -31,7 +31,7 @@ SRES 331
 
 You can also specify the show_text option. Matching text will be underlined (though not shown in example below).
 ```
-$ python billsearch.py "technology" --show_text True
+$ python billsearch.py "technology" --show_text
 Searching through Data Engineering Deliverable - BILLSTATUS-116-sres.zip
 
 Number of bills that match: 3
