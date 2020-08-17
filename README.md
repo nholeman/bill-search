@@ -14,9 +14,8 @@ Then, using pip, install the required libraries.
 
 # bill-search Examples
 For help with the tool, use the help option:
-```
-$ python billsearch.py --help
-```
+
+`python billsearch.py --help`
 
 Without any options, the tool can be used like this:
 ```
@@ -54,6 +53,5 @@ America's 5G Future Act), which relates to Huawei Technologies Co. Ltd. and tech
 
 # Testing bill-search
 You can run the unit tests with the following command:
-```
-$ python test_billsearch.py
-```
+
+`python test_billsearch.py`
