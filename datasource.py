@@ -1,6 +1,6 @@
 '''
-This file handles the data source. Its primary goal is to return an iterable
-that the main file can use to to check for matches.
+This file handles the data source. Its primary function is to return an 
+iterable that the main file can use to to check for matches.
 '''
 import re
 import html
@@ -12,7 +12,7 @@ import xml.etree.ElementTree as elementtree
 DEFAULT_FILE='Data Engineering Deliverable - BILLSTATUS-116-sres.zip'
 
 
-class dataSource:
+class DataSource:
     '''
     A class to the data source for the billsearch tool.
 

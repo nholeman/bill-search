@@ -3,7 +3,7 @@ import re
 
 import click
 
-from data_source import dataSource 
+from datasource import DataSource 
 
 
 @click.command()
@@ -22,7 +22,7 @@ def bill_search(search_expr, file_dir, show_text):
         python billsearch.py --show_text True "American \w+ Bureau"
     '''
 
-    ds = dataSource() if file_dir is None else dataSource(file_dir)
+    ds = DataSource() if file_dir is None else DataSource(file_dir)
     
     if ds.find_file_dir():
         click.echo('Searching through {}\n'.format(ds.get_file_name()))
